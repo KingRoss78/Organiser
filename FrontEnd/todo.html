@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Organiser Assistant</title>
+        <link href="css/style.css" rel="stylesheet">        
+        <script src="javascript/script.js" defer></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <h1>The Pension Organiser</h1>
+            
+        </header>
+        <nav class="navbar">            
+            <a href="home.html">Home</a>
+            <a href="calculator.html">Calculator</a>
+            <a>To Do List</a>              
+        </nav>
+        <main>
+            <div id="home">
+                <div class="calendarContainer">
+                    <div class="header">
+                      <div class="date" id="date"></div>
+                      <div class="day" id="day"></div>
+                    </div>
+                    <div class="calendarGrid" id="grid"></div>
+                  </div>             
+            </div>
+            <div id="toDoList">
+                <div class="toDoList">
+                    <input type="text" id="new-task" placeholder="Add new task">
+                    <select id="task-priority" name="Priority" selected="1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
+                    <button id="add-task">Add</button>
+                    <ul id="task-list"></ul>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
+        

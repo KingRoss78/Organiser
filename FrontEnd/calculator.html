@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Organiser Assistant</title>
+        <link href="css/style.css" rel="stylesheet">        
+        <script src="javascript/calculator.js" defer></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <h1>The Pension Organiser</h1>
+            
+        </header>
+        <nav class="navbar">            
+            <a href="home.html">Home</a>
+            <a>Calculator</a>
+            <a href="todo.html">To Do List</a>              
+        </nav>
+            <div id="calculator">
+                <div class="calculator-grid">
+                    <div class="output">
+                        <div data-previous-operand class="previous-operand"></div>
+                        <div data-current-operand class="current-operand"></div>
+                    </div>
+                    <!-- you will see data- classes, which are used for JS. This makes it easier to discern what classes are for CSS and what is for JS-->
+                    <button data-ac class="span-two">AC</button>
+                    <button data-delete>DEL</button>
+                    <button data-operation>÷</button>
+                    <button data-number>1</button>
+                    <button data-number>2</button>
+                    <button data-number>3</button>
+                    <button data-operation>*</button>
+                    <button data-number>4</button>
+                    <button data-number>5</button>
+                    <button data-number>6</button>
+                    <button data-operation>+</button>
+                    <button data-number>7</button>
+                    <button data-number>8</button>
+                    <button data-number>9</button>
+                    <button data-operation>-</button>
+                    <button data-number>.</button> <!-- decimal acts like a number so has number data attribute-->
+                    <button data-number>0</button>
+                    <button data-equals class="span-two">=</button>
+                    <!--<button data-operation class="span-four">LTA Calculate</button>-->
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
+        
