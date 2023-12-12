@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/rosschapman/Desktop/The Foundry/PensionPlanner/BackEnd/BackEnd.csproj": {}
+    "/opt/flipbook/public/learner/www/Organiser/BackEnd/BackEnd.csproj": {}
   },
   "projects": {
-    "/Users/rosschapman/Desktop/The Foundry/PensionPlanner/BackEnd/BackEnd.csproj": {
+    "/opt/flipbook/public/learner/www/Organiser/BackEnd/BackEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/rosschapman/Desktop/The Foundry/PensionPlanner/BackEnd/BackEnd.csproj",
+        "projectUniqueName": "/opt/flipbook/public/learner/www/Organiser/BackEnd/BackEnd.csproj",
         "projectName": "BackEnd",
-        "projectPath": "/Users/rosschapman/Desktop/The Foundry/PensionPlanner/BackEnd/BackEnd.csproj",
-        "packagesPath": "/Users/rosschapman/.nuget/packages/",
-        "outputPath": "/Users/rosschapman/Desktop/The Foundry/PensionPlanner/BackEnd/obj/",
+        "projectPath": "/opt/flipbook/public/learner/www/Organiser/BackEnd/BackEnd.csproj",
+        "packagesPath": "/home/ubuntu/.nuget/packages/",
+        "outputPath": "/opt/flipbook/public/learner/www/Organiser/BackEnd/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/rosschapman/.nuget/NuGet/NuGet.Config"
+          "/home/ubuntu/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -66,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/228/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
