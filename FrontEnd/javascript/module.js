@@ -4,7 +4,7 @@ const fetchOptions = {
 }
 
 const glossaryTable = document.getElementById('glossary-entry');
-const resp = await fetch('//http://fb.decoded.com:5000/api/glossaries', fetchOptions);
+const resp = await fetch('http://fb13.decoded.com:5000/api/pensionGlossary', fetchOptions);
 const data = await resp.json();
 
 for (const row of data) {
