@@ -65,6 +65,28 @@ for (let i = 0; i < 6; i++) {
   }
 }
 
+// Add a click event listener to each cell in the calendar
+let selectedCell = null;
+
+// Add a click event listener to each cell in the calendar
+grid.addEventListener('click', (event) => {
+  if (event.target.matches('.cell')) {
+    let selectedDate = event.target.innerHTML;
+    if (selectedDate) {
+      // Save the selected date
+      localStorage.setItem('selectedDate', selectedDate);
+
+      // Highlight the selected cell
+      if (selectedCell) {
+        selectedCell.classList.remove('selected');
+      }
+      event.target.classList.add('selected');
+      selectedCell = event.target;
+    }
+  }
+});
+
+
 //to do list
 const newTaskInput = document.getElementById('new-task');
 const taskPriority = document.getElementById('task-priority');
@@ -78,18 +100,21 @@ const saveData = () => {
     let task = taskList.children[i];
     let priority = task.querySelector('.task-priority').value;
     let text = task.querySelector('span').innerText;
-    tasks.push({text: text, priority: priority});
+    let dueDate = task.querySelector('span:nth-child(2)').innerText;
+    tasks.push({text: text, priority: priority, dueDate: dueDate});
   }
   tasks.sort((a, b) => Number(a.priority) - Number(b.priority));
   localStorage.setItem("data", JSON.stringify(tasks));
 };
 
-const addTask = (taskText, taskPriorityRating) => {
+const addTask = (taskText, taskPriorityRating, dueDate) => {
   let taskItem = document.createElement('li');
+  let formattedDate = `${dueDate}/${month + 1}/${year}`;
   taskItem.className = 'task';
-  taskItem.innerHTML = `
-  <input type="checkbox" class="complete-box">
-    <span style="width: 90%">${taskText}</span>
+    taskItem.innerHTML = `
+    <input type="checkbox" class="complete-box">
+    <span style="width: 70%">${taskText}</span>
+    <span style="width: 10%">${formattedDate}</span>
     <select style="width: 10%" class="task-priority" type="text" data-priority>
       <option ${taskPriorityRating === '1' ? 'selected' : ''}>1</option>
       <option ${taskPriorityRating === '2' ? 'selected' : ''}>2</option>
@@ -115,8 +140,9 @@ const addTask = (taskText, taskPriorityRating) => {
 addTaskButton.addEventListener('click', () => {
   const taskText = newTaskInput.value.trim();
   const taskPriorityRating = taskPriority.value.trim();
-  if (taskText) {
-    addTask(taskText, taskPriorityRating);
+  let dueDate = localStorage.getItem('selectedDate');
+  if (taskText && dueDate) {
+    addTask(taskText, taskPriorityRating, dueDate);
     newTaskInput.value = '';
     saveData();
   } else {
@@ -129,7 +155,7 @@ const showTask = () => {
   let tasks = JSON.parse(localStorage.getItem("data"));
   if (tasks) {
     tasks.forEach(task => {
-      addTask(task.text, task.priority);
+      addTask(task.text, task.priority, task.dueDate);
     });
   }
 };

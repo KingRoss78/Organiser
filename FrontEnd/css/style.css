@@ -98,6 +98,12 @@ td {
     background-color: yellow;
   }
 
+/* Add this to your CSS */
+.cell.selected {
+  background-color: #add8e6; /* Light blue */
+  color: white;
+}
+
 .calculator-grid {
     display: grid; /* display is set as a grid, so will use rows and columsn as css layour */
     width: 300px;
