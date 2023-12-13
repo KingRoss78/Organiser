@@ -60,6 +60,7 @@ td {
   padding: 15px;
   border: 1px solid #502274;
 }
+
 .calendarContainer {
     width: 300px;
     margin: 0 auto;
@@ -98,14 +99,13 @@ td {
     background-color: yellow;
   }
 
-/* Add this to your CSS */
 .cell.selected {
-  background-color: #add8e6; /* Light blue */
+  background-color: #add8e6; 
   color: white;
 }
 
 .calculator-grid {
-    display: grid; /* display is set as a grid, so will use rows and columsn as css layour */
+    display: grid; /* display is set as a grid, so will use rows and columsn as css layout */
     width: 300px;
     /*margin-left: 25%; */
     margin-right: auto;
@@ -222,12 +222,12 @@ button {
     align-items: center;
   }
   
-  .task input[type="checkbox"] {
+  /*.task input[type="checkbox"] {
     margin-right: 10px;
     background-color: #f44336;
     color: white;
     border-radius: 5px;
-  }
+  } */
   
   .task .delete {
     background-color: #f44336;
@@ -244,17 +244,5 @@ button {
     opacity: 60%;
   }
   
-  .task .completed {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .task .completed:hover {
-    background-color: #da190b;
-    opacity: 60%;
-  }
+
   

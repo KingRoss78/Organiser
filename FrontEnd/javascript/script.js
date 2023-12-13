@@ -80,7 +80,7 @@ grid.addEventListener('click', (event) => {
       if (selectedCell) {
         selectedCell.classList.remove('selected');
       }
-      event.target.classList.add('selected');
+     event.target.classList.add('selected');
       selectedCell = event.target;
     }
   }
@@ -112,7 +112,6 @@ const addTask = (taskText, taskPriorityRating, dueDate) => {
   let formattedDate = `${dueDate}/${month + 1}/${year}`;
   taskItem.className = 'task';
     taskItem.innerHTML = `
-    <input type="checkbox" class="complete-box">
     <span style="width: 70%">${taskText}</span>
     <span style="width: 10%">${formattedDate}</span>
     <select style="width: 10%" class="task-priority" type="text" data-priority>
@@ -122,6 +121,7 @@ const addTask = (taskText, taskPriorityRating, dueDate) => {
       <option ${taskPriorityRating === '4' ? 'selected' : ''}>4</option>
     </select>
     <button class="delete">Delete</button>
+    <button class="complete">Complete</button>
     `;
   taskList.appendChild(taskItem);
   taskItem.querySelector('.delete').addEventListener('click', () => {
@@ -135,6 +135,12 @@ const addTask = (taskText, taskPriorityRating, dueDate) => {
     }
     showTask();
   });
+    taskItem.querySelector('.complete').addEventListener('click', () => {
+    taskItem.querySelector('span').style.textDecoration = "line-through";
+    taskItem.querySelector('span').style.color = "grey";
+    saveData();
+  });
+
 }
 
 addTaskButton.addEventListener('click', () => {
