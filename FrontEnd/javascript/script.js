@@ -70,48 +70,69 @@ const newTaskInput = document.getElementById('new-task');
 const taskPriority = document.getElementById('task-priority');
 const addTaskButton = document.getElementById('add-task');
 const taskList = document.getElementById('task-list');
-const deleteButton = document.getElementsByClassName('.delete');
 
 //function to save data to local storage. This is called during event listener for addTaskButton
 const saveData = () => {
-  localStorage.setItem("data", taskList.innerHTML);
+  let tasks = [];
+  for (let i = 0; i < taskList.children.length; i++) {
+    let task = taskList.children[i];
+    let priority = task.querySelector('.task-priority').value;
+    let text = task.querySelector('span').innerText;
+    tasks.push({text: text, priority: priority});
+  }
+  tasks.sort((a, b) => Number(a.priority) - Number(b.priority));
+  localStorage.setItem("data", JSON.stringify(tasks));
 };
 
-//this retrieves data from storage 
-const showTask = () => {
-  taskList.innerHTML = localStorage.getItem("data");
-};
-
-//this ensures that any previous tasks remain on the list even upon refresh
-showTask();
+const addTask = (taskText, taskPriorityRating) => {
+  let taskItem = document.createElement('li');
+  taskItem.className = 'task';
+  taskItem.innerHTML = `
+  <input type="checkbox" class="complete-box">
+    <span style="width: 90%">${taskText}</span>
+    <select style="width: 10%" class="task-priority" type="text" data-priority>
+      <option ${taskPriorityRating === '1' ? 'selected' : ''}>1</option>
+      <option ${taskPriorityRating === '2' ? 'selected' : ''}>2</option>
+      <option ${taskPriorityRating === '3' ? 'selected' : ''}>3</option>
+      <option ${taskPriorityRating === '4' ? 'selected' : ''}>4</option>
+    </select>
+    <button class="delete">Delete</button>
+    `;
+  taskList.appendChild(taskItem);
+  taskItem.querySelector('.delete').addEventListener('click', () => {
+    taskItem.remove();
+    saveData();
+  });
+  taskItem.querySelector('.task-priority').addEventListener('change', () => {
+    saveData();
+    while (taskList.firstChild) {
+      taskList.removeChild(taskList.firstChild);
+    }
+    showTask();
+  });
+}
 
 addTaskButton.addEventListener('click', () => {
   const taskText = newTaskInput.value.trim();
   const taskPriorityRating = taskPriority.value.trim();
   if (taskText) {
-    let taskItem = document.createElement('li');
-    taskItem.className = 'task';
-    taskItem.innerHTML = `
-    <input type="checkbox" class="complete-box">
-      <span style="width: 90%">${taskText}</span>
-      <select style="width: 10%" class="task-priority" type="text" selected="${taskPriorityRating}" data-priority>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-      </select>
-      <button class="delete">Delete</button>
-      `;
-    taskList.appendChild(taskItem);
+    addTask(taskText, taskPriorityRating);
     newTaskInput.value = '';
     saveData();
   } else {
-      return;
-    }});
+    return;
+  }
+});
 
-taskList.addEventListener('click', (event) => {
-  if (event.target.matches('.delete')) {
-    event.target.closest('.task').remove();
-    localStorage.clear();
-  } else if (event.target.matches('.completed')) {
-  }});
+//this retrieves data from storage 
+const showTask = () => {
+  let tasks = JSON.parse(localStorage.getItem("data"));
+  if (tasks) {
+    tasks.forEach(task => {
+      addTask(task.text, task.priority);
+    });
+  }
+};
+
+//this ensures that any previous tasks remain on the list even upon refresh
+showTask();
