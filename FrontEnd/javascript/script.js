@@ -50,6 +50,8 @@ for (let i = 0; i < 6; i++) {
       // Set the cell text to the current date
       cell.innerHTML = currentDate;
 
+    cell.dataset.date = `${currentDate}/${month + 1}/${year};
+    `
       // If the current date is the same as today
       if (currentDate === day) {
         // Add the today class to the cell
@@ -71,7 +73,7 @@ let selectedCell = null;
 // Add a click event listener to each cell in the calendar
 grid.addEventListener('click', (event) => {
   if (event.target.matches('.cell')) {
-    let selectedDate = event.target.innerHTML;
+    let selectedDate = event.target.dataset.date;
     if (selectedDate) {
       // Save the selected date
       localStorage.setItem('selectedDate', selectedDate);
@@ -109,11 +111,10 @@ const saveData = () => {
 
 const addTask = (taskText, taskPriorityRating, dueDate) => {
   let taskItem = document.createElement('li');
-  let formattedDate = `${dueDate}/${month + 1}/${year}`;
   taskItem.className = 'task';
     taskItem.innerHTML = `
     <span style="width: 70%">${taskText}</span>
-    <span style="width: 10%">${formattedDate}</span>
+    <span style="width: 10%">${dueDate}</span>
     <select style="width: 10%" class="task-priority" type="text" data-priority>
       <option ${taskPriorityRating === '1' ? 'selected' : ''}>1</option>
       <option ${taskPriorityRating === '2' ? 'selected' : ''}>2</option>
