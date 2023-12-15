@@ -50,8 +50,7 @@ for (let i = 0; i < 6; i++) {
       // Set the cell text to the current date
       cell.innerHTML = currentDate;
 
-    cell.dataset.date = `${currentDate}/${month + 1}/${year};
-    `
+    cell.dataset.date = `${currentDate}/${month + 1}/${year}`;
       // If the current date is the same as today
       if (currentDate === day) {
         // Add the today class to the cell
