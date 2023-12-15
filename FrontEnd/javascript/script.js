@@ -136,10 +136,30 @@ const addTask = (taskText, taskPriorityRating, dueDate) => {
     showTask();
   });
     taskItem.querySelector('.complete').addEventListener('click', () => {
+  taskItem.querySelector('span').style.textDecoration = "line-through";
+  taskItem.querySelector('span').style.color = "grey";
+  
+  // Find the index of the task in the tasks array
+  let tasks = JSON.parse(localStorage.getItem("data"));
+  let taskIndex = tasks.findIndex(t => t.text === taskText && t.dueDate === dueDate);
+  
+  // Remove the task from the tasks array
+  if (taskIndex !== -1) {
+    tasks[taskIndex].completed = true;
+    localStorage.setItem("data", JSON.stringify(tasks));
     taskItem.querySelector('span').style.textDecoration = "line-through";
     taskItem.querySelector('span').style.color = "grey";
-    saveData();
-  });
+    taskItem.remove();
+}
+    //tasks.splice(taskIndex, 1);
+  
+  // Update the tasks in local storage
+  localStorage.setItem("data", JSON.stringify(tasks));
+  
+  // Remove the task from the task list
+  taskItem.remove();
+});
+
 
 }
 
@@ -160,8 +180,9 @@ addTaskButton.addEventListener('click', () => {
 const showTask = () => {
   let tasks = JSON.parse(localStorage.getItem("data"));
   if (tasks) {
+    tasks = tasks.filter(task => !task.completed);  // Filter out the completed tasks
     tasks.forEach(task => {
-      addTask(task.text, task.priority, task.dueDate);
+            addTask(task.text, task.priority, task.dueDate);
     });
   }
 };
