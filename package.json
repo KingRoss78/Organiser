@@ -1,0 +1,29 @@
+{
+  "name": "organiser",
+  "version": "1.0.0",
+  "description": "Organiser tool",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KingRoss78/Organiser.git"
+  },
+  "author": "Ross Chapman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KingRoss78/Organiser/issues"
+  },
+  "homepage": "https://github.com/KingRoss78/Organiser#readme",
+  "dependencies": {
+    "jest": "^29.7.0",
+    "mysql": "^2.18.1"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "devDependencies": {
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}
