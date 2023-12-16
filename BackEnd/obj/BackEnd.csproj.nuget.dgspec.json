@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/opt/flipbook/public/learner/www/Organiser/BackEnd/BackEnd.csproj": {}
+    "/opt/flipbook/public/learner/www/Organiser2/Organiser/BackEnd/BackEnd.csproj": {}
   },
   "projects": {
-    "/opt/flipbook/public/learner/www/Organiser/BackEnd/BackEnd.csproj": {
+    "/opt/flipbook/public/learner/www/Organiser2/Organiser/BackEnd/BackEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/opt/flipbook/public/learner/www/Organiser/BackEnd/BackEnd.csproj",
+        "projectUniqueName": "/opt/flipbook/public/learner/www/Organiser2/Organiser/BackEnd/BackEnd.csproj",
         "projectName": "BackEnd",
-        "projectPath": "/opt/flipbook/public/learner/www/Organiser/BackEnd/BackEnd.csproj",
+        "projectPath": "/opt/flipbook/public/learner/www/Organiser2/Organiser/BackEnd/BackEnd.csproj",
         "packagesPath": "/home/ubuntu/.nuget/packages/",
-        "outputPath": "/opt/flipbook/public/learner/www/Organiser/BackEnd/obj/",
+        "outputPath": "/opt/flipbook/public/learner/www/Organiser2/Organiser/BackEnd/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/ubuntu/.nuget/NuGet/NuGet.Config"
