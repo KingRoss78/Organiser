@@ -107,7 +107,6 @@ td {
 .calculator-grid {
     display: grid; /* display is set as a grid, so will use rows and columsn as css layout */
     width: 300px;
-    /*margin-left: 25%; */
     margin-right: auto;
     margin-left: auto;
     justify-content: center;
@@ -222,14 +221,7 @@ button {
     align-items: center;
   }
   
-  /*.task input[type="checkbox"] {
-    margin-right: 10px;
-    background-color: #f44336;
-    color: white;
-    border-radius: 5px;
-  } */
-  
-  .task .delete {
+  .task .complete {
     background-color: #f44336;
     color: white;
     border: none;
@@ -239,7 +231,7 @@ button {
     cursor: pointer;
   }
   
-  .task .delete:hover {
+  .task .complete:hover {
     background-color: #da190b;
     opacity: 60%;
   }

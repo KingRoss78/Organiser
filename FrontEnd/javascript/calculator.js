@@ -50,10 +50,6 @@ class Calculator { //using a class/contructor means that object is initialised a
             case '÷': 
                 computation = previousVariable / currentVariable
                 break;
-             /*case 'LTA Calculate':
-                computation = currentVariable / 1073100;
-                this.updateDisplay(); 
-                break; */
             default:
                 return;
         }
