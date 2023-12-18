@@ -5,7 +5,8 @@ a list of definitions, though this is generated using a `C#` web api. Requires `
 The list only shows up on server once `dotnet run` is triggered. 
 
 ###Calculator
-The javaScript file uses a class as a template for the instance of Calculator seen on the HTML page.
+The javaScript file uses a class as a template for the instance of Calculator seen on the HTML page. 
+Note: Sometimes, the divide symbol results in an `Ã·` and this appears to be due to a character encoding issue.
 
 ###To Do List
 This list uses `localStorage` to store tasks input by the user. The user can then add a priority between 1 - 4, and change tasks after they have been added to the list.
